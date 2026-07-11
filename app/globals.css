@@ -170,21 +170,21 @@ textarea {
 }
 
 .image-section {
-  padding: clamp(24px, 5vw, 56px) clamp(12px, 3vw, 28px);
+  padding: 0;
   background: #fbf6ed;
 }
 
 .image-section img {
   display: block;
-  width: min(100%, 1680px);
+  width: 100%;
   height: auto;
-  margin: 0 auto;
-  border-radius: 8px;
-  box-shadow: 0 16px 48px rgba(41, 29, 19, 0.1);
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .positioning-image-section {
-  padding-top: clamp(18px, 3vw, 36px);
+  padding-top: 0;
 }
 
 .hero {
@@ -828,7 +828,7 @@ td {
   }
 
   .image-section {
-    padding: 10px 0 24px;
+    padding: 0;
   }
 
   .image-section img {
