@@ -44,6 +44,18 @@ test("server-renders the podcast sales page", async () => {
   assert.match(html, /聲音內容製作所，Podcast 製作/);
   assert.match(html, /聲音內容製造所/);
   assert.match(html, /Podcast 一季基礎包/);
+  assert.match(html, /推薦方案/);
+  assert.match(html, /原定價\s*(?:<!-- -->)?\s*NT\$29,800/);
+  assert.match(html, /現在購買<\/span>\s*(?:<!-- -->)?\s*NT\$18,800 起/);
+  assert.match(html, /加錄單集/);
+  assert.match(html, /若基本方案集數不足，可加購單集製作。/);
+  assert.match(html, /加錄 1 集｜20 分鐘內/);
+  assert.match(html, /原定價\s*(?:<!-- -->)?\s*NT\$5,800/);
+  assert.match(html, /現在購買<\/span>\s*(?:<!-- -->)?\s*NT\$4,180／集/);
+  assert.match(html, /聲音製作方式/);
+  assert.match(html, /提供 30 秒聲音樣本製作 AI 聲音版/);
+  assert.match(html, /品牌加購/);
+  assert.match(html, /協助建立 Podcast 節目帳號/);
   assert.match(html, /加入官方 LINE 選購服務/);
   assert.match(html, /常見問題/);
   assert.match(html, /可以。你可以提供自行錄製的聲音檔，我們協助進行基礎音檔整理與上架。/);
@@ -85,6 +97,9 @@ test("keeps the product files focused on the finished site", async () => {
   assert.match(css, /method-frame-sweep/);
   assert.match(css, /industry-card:hover/);
   assert.match(css, /line-id/);
+  assert.match(css, /original-price/);
+  assert.match(css, /current-price/);
+  assert.match(css, /text-decoration: line-through/);
   assert.match(css, /@media \(max-width: 720px\)/);
   assert.match(script, /data-nav-toggle/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
@@ -102,6 +117,9 @@ test("writes a static GitHub Pages version under docs", async () => {
   assert.match(html, /cover-slide-3\.png/);
   assert.match(html, /https:\/\/eoniancco-hub\.github\.io\/podcast\/home-cover\.png/);
   assert.match(html, /https:\/\/line\.me\/R\/ti\/p\/@169wnclt/);
+  assert.match(html, /<title>聲音內容製造所<\/title>/);
+  assert.match(html, /原定價\s*(?:<!-- -->)?\s*NT\$15,800/);
+  assert.match(html, /現在購買<\/span>\s*(?:<!-- -->)?\s*NT\$9,800 起/);
   assert.doesNotMatch(html, /\b(?:href|src|content)="\/(?!\/)/);
   assert.doesNotMatch(html, /modulepreload|type="module"|__VINEXT_RSC|id="_R_"|import\("\/assets|EasyShop/);
 });

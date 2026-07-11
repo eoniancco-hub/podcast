@@ -35,44 +35,79 @@ const voiceOptions = [
   "多人對話，另行報價",
 ];
 
+type PriceInfo = {
+  original?: string;
+  current: string;
+};
+
 const plans = [
   {
     name: "Podcast 試水溫包",
     episodes: "5 集",
-    price: "NT$9,800 起",
+    original: "NT$15,800",
+    current: "NT$9,800 起",
     note: "適合第一次嘗試 Podcast 的客戶",
     featured: false,
   },
   {
     name: "Podcast 一季基礎包",
     episodes: "10 集",
-    price: "NT$18,800 起",
+    original: "NT$29,800",
+    current: "NT$18,800 起",
     note: "適合想建立一季 Podcast 內容的客戶",
     featured: true,
   },
   {
     name: "Podcast 內容庫存包",
     episodes: "20 集",
-    price: "NT$35,800 起",
+    original: "NT$56,800",
+    current: "NT$35,800 起",
     note: "適合想長期排程或建立內容庫存的客戶",
     featured: false,
   },
 ];
 
-const addOns = [
-  ["講稿代寫 5 分鐘內", "+NT$1,500／集"],
-  ["講稿代寫 10 分鐘內", "+NT$2,800／集"],
-  ["講稿代寫 15 分鐘內", "+NT$4,000／集"],
-  ["講稿代寫 20 分鐘內", "+NT$5,000／集"],
-  ["雙人對話製作", "+NT$800／集"],
-  ["多人對話製作", "+NT$1,500／集起"],
-  ["片頭製作", "NT$1,500 起"],
-  ["片尾製作", "NT$1,500 起"],
-  ["片頭＋片尾套版", "NT$2,500 起"],
-  ["增加上架平台", "+NT$800／平台／集"],
-  ["Podcast 封面設計", "NT$3,000 起"],
-  ["單集社群貼文", "NT$800／篇"],
-  ["急件處理", "總價加收 30%"],
+const extraEpisodes = [
+  { label: "加錄 1 集｜5 分鐘內", original: "NT$2,800", current: "NT$1,980／集" },
+  { label: "加錄 1 集｜10 分鐘內", original: "NT$3,800", current: "NT$2,780／集" },
+  { label: "加錄 1 集｜15 分鐘內", original: "NT$4,800", current: "NT$3,480／集" },
+  { label: "加錄 1 集｜20 分鐘內", original: "NT$5,800", current: "NT$4,180／集" },
+];
+
+const durationAddOns = [
+  { label: "5 分鐘內", current: "基本包包含" },
+  { label: "10 分鐘內", original: "NT$1,200／集", current: "NT$800／集" },
+  { label: "15 分鐘內", original: "NT$2,200／集", current: "NT$1,500／集" },
+  { label: "20 分鐘內", original: "NT$3,200／集", current: "NT$2,200／集" },
+  { label: "超過 20 分鐘", current: "另行報價" },
+];
+
+const scriptAddOns = [
+  { label: "5 分鐘講稿", original: "NT$2,500", current: "NT$1,500／集" },
+  { label: "10 分鐘講稿", original: "NT$4,500", current: "NT$2,800／集" },
+  { label: "15 分鐘講稿", original: "NT$6,500", current: "NT$4,000／集" },
+  { label: "20 分鐘講稿", original: "NT$8,000", current: "NT$5,000／集" },
+];
+
+const voiceProductionAddOns = [
+  { label: "客戶自行提供完整錄音檔", current: "基本包包含" },
+  { label: "專業音色代錄｜單人", current: "基本包包含" },
+  { label: "提供 30 秒聲音樣本製作 AI 聲音版", original: "NT$5,000", current: "NT$3,000 起" },
+  { label: "雙人對話聲音製作", original: "NT$1,200／集", current: "NT$800／集" },
+  { label: "雙人對話腳本整理", original: "NT$2,500／集", current: "NT$1,500／集起" },
+  { label: "雙人對話講稿代寫", original: "NT$4,000／集", current: "NT$2,500／集起" },
+  { label: "多人對話／情境式節目", current: "NT$1,500／集起，另行報價" },
+];
+
+const brandAddOns = [
+  { label: "片頭製作", original: "NT$2,500", current: "NT$1,500 起" },
+  { label: "片尾製作", original: "NT$2,500", current: "NT$1,500 起" },
+  { label: "片頭＋片尾套版", original: "NT$4,000", current: "NT$2,500 起" },
+  { label: "Podcast 封面設計", original: "NT$5,000", current: "NT$3,000 起" },
+  { label: "單集社群貼文", original: "NT$1,200", current: "NT$800／篇" },
+  { label: "多平台上架", original: "NT$1,200", current: "NT$800／平台／集" },
+  { label: "協助建立 Podcast 節目帳號", original: "NT$5,000", current: "NT$3,000 起" },
+  { label: "急件處理", original: "總價加收 50%", current: "總價加收 30%" },
 ];
 
 const processSteps = [
@@ -154,6 +189,34 @@ function SectionIntro({ eyebrow, title, text }: { eyebrow?: string; title: strin
       {eyebrow ? <span className="eyebrow">{eyebrow}</span> : null}
       <h2>{title}</h2>
       {text ? <p>{text}</p> : null}
+    </div>
+  );
+}
+
+function PriceBlock({ original, current }: PriceInfo) {
+  return (
+    <div className="price-stack">
+      {original ? <p className="original-price">原定價 {original}</p> : null}
+      <p className="current-price"><span>現在購買</span> {current}</p>
+    </div>
+  );
+}
+
+function AddOnGroup({ title, text, items }: { title: string; text?: string; items: Array<{ label: string } & PriceInfo> }) {
+  return (
+    <div className="addon-section">
+      <div className="addon-heading">
+        <h3>{title}</h3>
+        {text ? <p>{text}</p> : null}
+      </div>
+      <div className="addon-grid">
+        {items.map((item) => (
+          <div className="addon-item" key={item.label}>
+            <span>{item.label}</span>
+            <PriceBlock original={item.original} current={item.current} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -257,11 +320,10 @@ export default function Home() {
           <div className="pricing-grid">
             {plans.map((plan) => (
               <article className={`price-card ${plan.featured ? "featured" : ""}`} key={plan.name}>
-                {plan.featured ? <span className="badge">推薦</span> : null}
-                <h3>{plan.name}</h3>
-                <p className="episodes">{plan.episodes}</p>
+                {plan.featured ? <span className="badge">推薦方案</span> : null}
+                <h3>{plan.name}｜{plan.episodes}</h3>
                 <p className="limit">每集 5 分鐘內</p>
-                <p className="price">{plan.price}</p>
+                <PriceBlock original={plan.original} current={plan.current} />
                 <p>{plan.note}</p>
                 <p className="include">包含：專業音色代錄或客戶錄音後製、SoundOn 上架</p>
                 <a className="button primary full" href={lineUrl} target="_blank" rel="noreferrer">加入官方 LINE 詢問</a>
@@ -275,14 +337,8 @@ export default function Home() {
           <div className="table-wrap">
             <table>
               <tbody>
-                {[
-                  ["5 分鐘內", "基本包包含"],
-                  ["10 分鐘內", "+NT$800／集"],
-                  ["15 分鐘內", "+NT$1,500／集"],
-                  ["20 分鐘內", "+NT$2,200／集"],
-                  ["超過 20 分鐘", "另行報價"],
-                ].map(([label, value]) => (
-                  <tr key={label}><th>{label}</th><td>{value}</td></tr>
+                {durationAddOns.map((item) => (
+                  <tr key={item.label}><th>{item.label}</th><td><PriceBlock original={item.original} current={item.current} /></td></tr>
                 ))}
               </tbody>
             </table>
@@ -290,10 +346,11 @@ export default function Home() {
         </section>
 
         <section className="section muted" id="addons">
-          <SectionIntro title="你可以依照需要加購服務" />
-          <div className="addon-grid">
-            {addOns.map(([label, price]) => <div className="addon-item" key={label}><span>{label}</span><strong>{price}</strong></div>)}
-          </div>
+          <SectionIntro title="你可以依照需要加購服務" text="依照節目集數、長度、聲音形式與品牌需求彈性加購，所有價格都會在 LINE 確認後安排製作。" />
+          <AddOnGroup title="加錄單集" text="若基本方案集數不足，可加購單集製作。" items={extraEpisodes} />
+          <AddOnGroup title="講稿代寫" items={scriptAddOns} />
+          <AddOnGroup title="聲音製作方式" items={voiceProductionAddOns} />
+          <AddOnGroup title="品牌加購" items={brandAddOns} />
         </section>
 
         <section className="section cart-section" id="order">

@@ -665,11 +665,36 @@ textarea {
   margin-top: 2px;
 }
 
-.price {
+.price-stack {
+  display: grid;
+  gap: 4px;
   margin: 16px 0;
+}
+
+.original-price {
+  margin: 0;
+  color: #8b837a !important;
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+  text-decoration-color: rgba(79, 73, 67, 0.5);
+}
+
+.current-price {
+  margin: 0;
   color: var(--orange-dark) !important;
-  font-size: 32px;
+  font-size: clamp(23px, 3vw, 32px);
   font-weight: 900;
+  line-height: 1.25;
+}
+
+.current-price span {
+  display: inline-block;
+  margin-right: 4px;
+  color: var(--orange);
+  font-size: 0.78em;
+  font-weight: 950;
 }
 
 .include {
@@ -711,8 +736,16 @@ th {
 }
 
 td {
-  color: var(--orange-dark);
+  color: var(--ink-soft);
   font-weight: 900;
+}
+
+td .price-stack {
+  margin: 0;
+}
+
+td .current-price {
+  font-size: 20px;
 }
 
 .addon-grid {
@@ -721,9 +754,36 @@ td {
   gap: 12px;
 }
 
+.addon-section {
+  margin-top: 30px;
+}
+
+.addon-section:first-of-type {
+  margin-top: 0;
+}
+
+.addon-heading {
+  margin-bottom: 14px;
+}
+
+.addon-heading h3 {
+  margin: 0;
+  font-size: clamp(23px, 2.4vw, 30px);
+  line-height: 1.25;
+}
+
+.addon-heading p {
+  max-width: 760px;
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  font-size: 17px;
+  font-weight: 700;
+}
+
 .addon-item {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
   gap: 16px;
   padding: 17px 18px;
   border: 1px solid var(--line);
@@ -736,10 +796,19 @@ td {
   font-weight: 800;
 }
 
-.addon-item strong {
-  color: var(--orange-dark);
+.addon-item .price-stack {
+  min-width: 190px;
+  margin: 0;
   text-align: right;
-  white-space: nowrap;
+}
+
+.addon-item .original-price {
+  font-size: 14px;
+}
+
+.addon-item .current-price {
+  font-size: 18px;
+  white-space: normal;
 }
 
 .cart-section {
@@ -1014,13 +1083,13 @@ td {
   }
 
   .addon-item {
-    flex-direction: column;
-    gap: 4px;
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
-  .addon-item strong {
+  .addon-item .price-stack {
+    min-width: 0;
     text-align: left;
-    white-space: normal;
   }
 
   .timeline li {
