@@ -62,6 +62,7 @@ test("keeps the product files focused on the finished site", async () => {
   assert.match(page, /className="brand-logo"/);
   assert.match(page, /基本包不包含/);
   assert.match(layout, /一站式 Podcast 製作服務｜企劃、講稿、錄製、上架一次完成/);
+  assert.match(css, /method-frame-sweep/);
   assert.match(css, /@media \(max-width: 720px\)/);
   assert.match(script, /data-nav-toggle/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
