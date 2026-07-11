@@ -69,16 +69,13 @@ textarea {
   min-width: 0;
 }
 
-.brand-mark {
-  display: grid;
-  width: 36px;
-  height: 36px;
+.brand-logo {
+  width: 42px;
+  height: 42px;
   flex: 0 0 auto;
-  place-items: center;
   border-radius: 50%;
-  background: var(--ink);
-  color: var(--paper);
-  font-weight: 900;
+  object-fit: cover;
+  box-shadow: 0 4px 14px rgba(41, 29, 19, 0.14);
 }
 
 .nav-links {
@@ -764,10 +761,15 @@ td {
   }
 
   .brand span:last-child {
-    max-width: 210px;
+    max-width: 160px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  .brand-logo {
+    width: 38px;
+    height: 38px;
   }
 
   .hero {

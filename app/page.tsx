@@ -188,8 +188,8 @@ export default function Home() {
     <>
       <header className="site-header" data-header>
         <a className="brand" href="#top" aria-label="回到首頁">
-          <span className="brand-mark">P</span>
-          <span>Podcast 聲音內容設計服務</span>
+          <img className="brand-logo" src="/logo.png" alt="" aria-hidden="true" />
+          <span>聲音內容製作所</span>
         </a>
         <button className="nav-toggle" type="button" data-nav-toggle aria-label="開啟導覽">
           <span />
