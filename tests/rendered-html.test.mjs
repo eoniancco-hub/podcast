@@ -44,7 +44,7 @@ test("server-renders the podcast sales page", async () => {
   assert.match(html, /聲音內容製作所，Podcast 製作/);
   assert.match(html, /聲音內容製造所/);
   assert.match(html, /Podcast 一季基礎包/);
-  assert.match(html, /前往 EasyShop 下單/);
+  assert.match(html, /加入官方 LINE 選購服務/);
   assert.match(html, /常見問題/);
   assert.match(html, /可以。你可以提供自行錄製的聲音檔，我們協助進行基礎音檔整理與上架。/);
   assert.match(html, /如Apple podcast、spotify、KKBOX/);
@@ -52,6 +52,8 @@ test("server-renders the podcast sales page", async () => {
   assert.match(html, /加入官方 LINE 詢問/);
   assert.match(html, /LINE ID：@169wnclt/);
   assert.match(html, /https:\/\/line\.me\/R\/ti\/p\/@169wnclt/);
+  assert.doesNotMatch(html, /EasyShop/);
+  assert.doesNotMatch(html, /href="#order"/);
   assert.doesNotMatch(html, /若需要到場錄音或專業錄音室服務/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
 });

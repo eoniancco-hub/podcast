@@ -76,9 +76,9 @@ const addOns = [
 ];
 
 const processSteps = [
-  "到 EasyShop 選擇方案與加購項目",
-  "加入購物車並完成付款",
   "加入官方 LINE",
+  "確認方案、集數與加購項目",
+  "完成付款",
   "填寫製作表單",
   "上傳逐字稿、錄音檔、公司介紹或品牌資料",
   "選擇聲音形式與上架日期",
@@ -177,7 +177,7 @@ export default function Home() {
           <a href="#addons">加購項目</a>
           <a href="#process">流程</a>
           <a href="#faq">FAQ</a>
-          <a className="nav-cta" href="#order">立即下單</a>
+          <a className="nav-cta" href={lineUrl} target="_blank" rel="noreferrer">立即詢問</a>
         </nav>
       </header>
 
@@ -264,7 +264,7 @@ export default function Home() {
                 <p className="price">{plan.price}</p>
                 <p>{plan.note}</p>
                 <p className="include">包含：專業音色代錄或客戶錄音後製、SoundOn 上架</p>
-                <a className="button primary full" href="#order">前往 EasyShop 下單</a>
+                <a className="button primary full" href={lineUrl} target="_blank" rel="noreferrer">加入官方 LINE 詢問</a>
               </article>
             ))}
           </div>
@@ -298,9 +298,9 @@ export default function Home() {
 
         <section className="section cart-section" id="order">
           <div className="cart-copy">
-            <SectionIntro title="像購物一樣，選擇你需要的 Podcast 服務" text="本服務將導向 EasyShop 商品頁，客戶可以依需求選擇集數、單集長度、聲音形式、是否講稿代寫、雙人對話、片頭片尾、多平台上架、封面設計或社群貼文。" />
-            <p>完成付款後，請加入官方 LINE，並依照表單上傳製作資料。我們會依照訂單內容與客戶提供資料進行製作。</p>
-            <a className="button primary" href="#order">前往 EasyShop 選購服務</a>
+            <SectionIntro title="到 LINE 確認你需要的 Podcast 服務" text="你可以依需求選擇集數、單集長度、聲音形式、是否講稿代寫、雙人對話、片頭片尾、多平台上架、封面設計或社群貼文，我們會在 LINE 協助你確認方案。" />
+            <p>加入官方 LINE 後，我們會依照你的需求確認服務內容、付款方式與資料上傳流程，再開始安排製作。</p>
+            <a className="button primary" href={lineUrl} target="_blank" rel="noreferrer">加入官方 LINE 選購服務</a>
           </div>
           <div className="cart-list">
             {["集數", "單集長度", "聲音形式", "講稿代寫", "雙人對話", "片頭片尾", "多平台上架", "封面或社群貼文"].map((item) => <span key={item}>{item}</span>)}
@@ -357,8 +357,8 @@ export default function Home() {
           <p>你不用從零學錄音、剪輯和上架。只要下單並提供資料，我們協助你把想法、文章、公司介紹或專業知識，變成可以發布的 Podcast。</p>
           <p className="line-id">LINE ID：@169wnclt</p>
           <div className="button-row centered">
-            <a className="button primary" href="#order">前往 EasyShop 下單</a>
-            <a className="button secondary" href={lineUrl} target="_blank" rel="noreferrer">加入官方 LINE 詢問</a>
+            <a className="button primary" href={lineUrl} target="_blank" rel="noreferrer">加入官方 LINE 詢問</a>
+            <a className="button secondary" href={lineUrl} target="_blank" rel="noreferrer">LINE ID：@169wnclt</a>
           </div>
         </section>
       </main>

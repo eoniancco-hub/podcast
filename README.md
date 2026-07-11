@@ -19,11 +19,9 @@ pnpm run dev
 
 ## 修改連結
 
-目前 CTA 連結使用 placeholder，正式上線前請替換：
+目前所有詢問與下單 CTA 都導向官方 LINE：
 
-- EasyShop 下單：搜尋 `#order`
-- 官方 LINE：搜尋 `#line`
-- 範例音檔：可新增連到 `#demo`
+- 官方 LINE：`https://line.me/R/ti/p/@169wnclt`
 - 方案價格：目前使用 `#pricing`
 
 ## 排版確認
