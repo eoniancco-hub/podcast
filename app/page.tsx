@@ -1,14 +1,5 @@
 import Script from "next/script";
 
-const painPoints = [
-  "不知道節目要怎麼規劃",
-  "沒時間寫講稿",
-  "不想自己錄音",
-  "不會剪輯音檔",
-  "不知道怎麼上架平台",
-  "想經營品牌，但沒有內容製作團隊",
-];
-
 const audience = [
   "個人品牌經營者",
   "專業顧問",
@@ -221,25 +212,18 @@ export default function Home() {
           />
         </section>
 
-        <section className="section muted">
-          <SectionIntro title="你是不是也想做 Podcast，但一直卡在這些地方？" />
-          <div className="card-grid three">
-            {painPoints.map((item) => <article className="small-card" key={item}>{item}</article>)}
-          </div>
-          <p className="center-note">你不需要自己學完整套流程，只要選擇需要的服務，我們可以協助你一步一步完成。</p>
+        <section className="image-section pain-image-section" aria-label="Podcast 製作痛點">
+          <img
+            src="/pain-points.png"
+            alt="你是不是也想做 Podcast，但一直卡在不知道節目規劃、沒時間寫講稿、不想自己錄音、不會剪輯音檔、不知道怎麼上架平台，以及沒有內容製作團隊"
+          />
         </section>
 
-        <section className="section" id="service">
-          <SectionIntro
-            eyebrow="服務定位"
-            title="這不是單純代錄，而是幫你完成 Podcast 製作流程"
-            text="本服務適合想經營 Podcast，但不想自己處理技術流程與內容整理的人。你可以只提供逐字稿，也可以提供公司介紹、品牌資料、課程內容或文章，由我們協助整理成講稿。"
+        <section className="image-section positioning-image-section" id="service" aria-label="服務定位">
+          <img
+            src="/service-positioning.png"
+            alt="服務定位，這不是單純代錄，而是幫你完成 Podcast 製作流程。你有逐字稿、你只有主題或資料、你不想自己錄音"
           />
-          <div className="card-grid three">
-            <article className="feature-card"><span>01</span><h3>你有逐字稿</h3><p>我們協助聲音製作與上架。</p></article>
-            <article className="feature-card"><span>02</span><h3>你只有主題或資料</h3><p>我們協助講稿代寫與內容整理。</p></article>
-            <article className="feature-card"><span>03</span><h3>你不想自己錄音</h3><p>我們提供專業音色代錄。</p></article>
-          </div>
         </section>
 
         <section className="section split muted">
