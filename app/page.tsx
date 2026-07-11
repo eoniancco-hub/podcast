@@ -189,7 +189,7 @@ export default function Home() {
       <header className="site-header" data-header>
         <a className="brand" href="#top" aria-label="回到首頁">
           <img className="brand-logo" src="/logo.png" alt="" aria-hidden="true" />
-          <span>聲音內容製作所</span>
+          <span>聲音內容製造所</span>
         </a>
         <button className="nav-toggle" type="button" data-nav-toggle aria-label="開啟導覽">
           <span />
@@ -214,28 +214,11 @@ export default function Home() {
           />
         </section>
 
-        <section className="hero section">
-          <div className="hero-copy">
-            <span className="eyebrow">一站式 Podcast 製作服務</span>
-            <h1>一站式 Podcast 製作服務</h1>
-            <p className="hero-subtitle">你只要下單，我們協助完成企劃、講稿、錄製、剪輯、上架到發布。</p>
-            <p>
-              想做 Podcast，但不想自己買設備、錄音、剪輯、研究上架流程？我們可以協助你把公司介紹、品牌故事、專業知識、文章內容或逐字稿，整理成可以發布的 Podcast 節目。
-            </p>
-            <p>你可以選擇使用自己的聲音錄製，也可以選擇專業音色代錄。</p>
-            <div className="button-row">
-              <a className="button primary" href="#pricing">查看方案</a>
-              <a className="button secondary" href="#line">加入官方 LINE 詢問</a>
-            </div>
-          </div>
-          <div className="hero-card" aria-label="Podcast 製作流程">
-            {["下單", "加入官方 LINE", "上傳資料", "選擇聲音", "製作音檔", "上架發布"].map((step, index) => (
-              <div className="flow-item" key={step}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <strong>{step}</strong>
-              </div>
-            ))}
-          </div>
+        <section className="service-hero-section" aria-label="一站式 Podcast 製作服務介紹">
+          <img
+            src="/service-hero.png"
+            alt="一站式 Podcast 製作服務，企劃、講稿、錄製、剪輯、上架一次完成"
+          />
         </section>
 
         <section className="section muted">
