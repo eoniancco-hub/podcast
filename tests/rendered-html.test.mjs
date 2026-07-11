@@ -29,7 +29,7 @@ test("server-renders the podcast sales page", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>一站式 Podcast 製作服務/);
+  assert.match(html, /<title>聲音內容製造所<\/title>/);
   assert.match(html, /一站式 Podcast 製作服務，企劃、講稿、錄製、剪輯、上架一次完成/);
   assert.match(html, /\/home-cover\.png/);
   assert.match(html, /\/cover-slide-2\.png/);
@@ -78,7 +78,7 @@ test("keeps the product files focused on the finished site", async () => {
   assert.match(page, /className="brand-logo"/);
   assert.doesNotMatch(page, /SectionIntro title="基本包不包含"/);
   assert.doesNotMatch(page, /const exclusions/);
-  assert.match(layout, /一站式 Podcast 製作服務｜企劃、講稿、錄製、上架一次完成/);
+  assert.match(layout, /title: "聲音內容製造所"/);
   assert.match(css, /cover-fade/);
   assert.match(css, /\.cover-section \{\n  padding: 0;/);
   assert.match(css, /\.cover-carousel \{[\s\S]*?width: 100%;/);
@@ -94,7 +94,7 @@ test("keeps the product files focused on the finished site", async () => {
 test("writes a static GitHub Pages version under docs", async () => {
   const html = await readFile(new URL("../docs/index.html", import.meta.url), "utf8");
 
-  assert.match(html, /<title>一站式 Podcast 製作服務/);
+  assert.match(html, /<title>聲音內容製造所<\/title>/);
   assert.match(html, /href="assets\/index-[^"]+\.css"/);
   assert.match(html, /src="script\.js"/);
   assert.match(html, /home-cover\.png/);
