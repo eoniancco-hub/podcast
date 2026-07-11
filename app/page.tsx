@@ -136,18 +136,18 @@ const deliveryRules = [
 const cases = [
   {
     role: "室內設計師",
-    show: "裝修前你該知道的事",
-    topics: ["裝修前為什麼不能只看價格", "統包和設計師差在哪", "老屋翻修最常見的追加費", "裝修合約一定要注意什麼", "怎麼跟設計師溝通需求"],
+    image: "/industry-designer.png",
+    alt: "室內設計師案例：裝修前你該知道的事",
   },
   {
     role: "房仲",
-    show: "第一次買房不踩雷",
-    topics: ["第一次看房要注意什麼", "為什麼同社區價差那麼大", "預售屋付款流程怎麼看", "買房前要查哪些資料", "斡旋前要想清楚的事"],
+    image: "/industry-agent.png",
+    alt: "房仲案例：第一次買房不踩雷",
   },
   {
     role: "顧問／講師",
-    show: "老闆的內容行銷課",
-    topics: ["為什麼專業人士需要內容行銷", "一篇文章怎麼變成 Podcast", "怎麼把常見問題變成節目", "內容不是越長越好", "先做 5 集比想一年更重要"],
+    image: "/industry-consultant.png",
+    alt: "顧問講師案例：老闆的內容行銷課",
   },
 ];
 
@@ -361,12 +361,10 @@ export default function Home() {
 
         <section className="section muted">
           <SectionIntro title="不同產業可以怎麼做 Podcast？" />
-          <div className="card-grid three">
+          <div className="industry-grid">
             {cases.map((item) => (
-              <article className="case-card" key={item.role}>
-                <span>{item.role}</span>
-                <h3>{item.show}</h3>
-                <ul>{item.topics.map((topic) => <li key={topic}>{topic}</li>)}</ul>
+              <article className="industry-card" key={item.role} tabIndex={0}>
+                <img src={item.image} alt={item.alt} />
               </article>
             ))}
           </div>

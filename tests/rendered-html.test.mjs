@@ -38,6 +38,9 @@ test("server-renders the podcast sales page", async () => {
   assert.match(html, /\/service-hero\.png/);
   assert.match(html, /\/pain-points\.png/);
   assert.match(html, /\/service-positioning\.png/);
+  assert.match(html, /\/industry-designer\.png/);
+  assert.match(html, /\/industry-agent\.png/);
+  assert.match(html, /\/industry-consultant\.png/);
   assert.match(html, /聲音內容製作所，Podcast 製作/);
   assert.match(html, /聲音內容製造所/);
   assert.match(html, /Podcast 一季基礎包/);
@@ -62,11 +65,13 @@ test("keeps the product files focused on the finished site", async () => {
   assert.match(page, /className="service-hero-section"/);
   assert.match(page, /className="image-section pain-image-section"/);
   assert.match(page, /className="image-section positioning-image-section"/);
+  assert.match(page, /className="industry-card"/);
   assert.match(page, /className="brand-logo"/);
   assert.match(page, /基本包不包含/);
   assert.match(layout, /一站式 Podcast 製作服務｜企劃、講稿、錄製、上架一次完成/);
   assert.match(css, /cover-fade/);
   assert.match(css, /method-frame-sweep/);
+  assert.match(css, /industry-card:hover/);
   assert.match(css, /@media \(max-width: 720px\)/);
   assert.match(script, /data-nav-toggle/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
