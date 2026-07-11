@@ -207,6 +207,13 @@ export default function Home() {
       </header>
 
       <main id="top">
+        <section className="cover-section" aria-label="聲音內容製作所封面">
+          <img
+            src="/home-cover.png"
+            alt="聲音內容製作所，Podcast 製作、聲音代錄、講稿撰寫、剪輯後製、上架發布"
+          />
+        </section>
+
         <section className="hero section">
           <div className="hero-copy">
             <span className="eyebrow">一站式 Podcast 製作服務</span>
