@@ -241,7 +241,7 @@ export default function Home() {
           <a href="#addons">加購項目</a>
           <a href="#process">流程</a>
           <a href="#faq">FAQ</a>
-          <a className="nav-cta" href={lineUrl} target="_blank" rel="noreferrer">立即詢問</a>
+          <a className="nav-cta" href={quoteFormUrl} target="_blank" rel="noreferrer">立即取得報價</a>
         </nav>
       </header>
 

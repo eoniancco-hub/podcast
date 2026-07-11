@@ -58,6 +58,7 @@ test("server-renders the podcast sales page", async () => {
   assert.match(html, /協助建立 Podcast 節目帳號/);
   assert.match(html, /加入官方 LINE 選購服務/);
   assert.match(html, /立即取得報價/);
+  assert.match(html, /class="nav-cta" href="https:\/\/docs\.google\.com\/forms\/d\/e\/1FAIpQLScql2a0ZuGxOU2_3F6Eh7yZutHZBmL9AvOgpjqGBf2yc_g9wg\/viewform\?pli=1"[^>]*>立即取得報價/);
   assert.match(html, /https:\/\/docs\.google\.com\/forms\/d\/e\/1FAIpQLScql2a0ZuGxOU2_3F6Eh7yZutHZBmL9AvOgpjqGBf2yc_g9wg\/viewform\?pli=1/);
   assert.match(html, /常見問題/);
   assert.match(html, /可以。你可以提供自行錄製的聲音檔，我們協助進行基礎音檔整理與上架。/);
