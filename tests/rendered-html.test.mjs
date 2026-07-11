@@ -90,3 +90,18 @@ test("keeps the product files focused on the finished site", async () => {
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
   assert.doesNotMatch(page + layout + css, /_sites-preview|codex-preview/);
 });
+
+test("writes a static GitHub Pages version under docs", async () => {
+  const html = await readFile(new URL("../docs/index.html", import.meta.url), "utf8");
+
+  assert.match(html, /<title>一站式 Podcast 製作服務/);
+  assert.match(html, /href="assets\/index-[^"]+\.css"/);
+  assert.match(html, /src="script\.js"/);
+  assert.match(html, /home-cover\.png/);
+  assert.match(html, /cover-slide-2\.png/);
+  assert.match(html, /cover-slide-3\.png/);
+  assert.match(html, /https:\/\/eoniancco-hub\.github\.io\/podcast\/home-cover\.png/);
+  assert.match(html, /https:\/\/line\.me\/R\/ti\/p\/@169wnclt/);
+  assert.doesNotMatch(html, /\b(?:href|src|content)="\/(?!\/)/);
+  assert.doesNotMatch(html, /modulepreload|type="module"|__VINEXT_RSC|EasyShop/);
+});
