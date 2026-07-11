@@ -630,27 +630,11 @@ textarea {
   background: #f8efe5;
 }
 
-.warning-box,
 .rules-box {
   border: 1px solid #d8bca2;
   border-radius: 8px;
   background: #fff7ed;
   box-shadow: var(--shadow);
-}
-
-.warning-box {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  padding: 24px;
-}
-
-.warning-box span {
-  padding: 12px 14px;
-  border-left: 4px solid var(--orange);
-  background: rgba(255, 253, 248, 0.84);
-  color: var(--ink-soft);
-  font-weight: 800;
 }
 
 .pricing-grid {
@@ -1038,7 +1022,6 @@ td {
   .industry-grid,
   .pricing-grid,
   .check-grid,
-  .warning-box,
   .addon-grid,
   .timeline {
     grid-template-columns: 1fr;

@@ -46,7 +46,11 @@ test("server-renders the podcast sales page", async () => {
   assert.match(html, /Podcast 一季基礎包/);
   assert.match(html, /前往 EasyShop 下單/);
   assert.match(html, /常見問題/);
+  assert.match(html, /可以。你可以提供自行錄製的聲音檔，我們協助進行基礎音檔整理與上架。/);
+  assert.match(html, /如Apple podcast、spotify、KKBOX/);
+  assert.match(html, /基本包不包含哪些服務？/);
   assert.match(html, /加入官方 LINE 詢問/);
+  assert.doesNotMatch(html, /若需要到場錄音或專業錄音室服務/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
 });
 
@@ -67,7 +71,8 @@ test("keeps the product files focused on the finished site", async () => {
   assert.match(page, /className="image-section positioning-image-section"/);
   assert.match(page, /className="industry-card"/);
   assert.match(page, /className="brand-logo"/);
-  assert.match(page, /基本包不包含/);
+  assert.doesNotMatch(page, /SectionIntro title="基本包不包含"/);
+  assert.doesNotMatch(page, /const exclusions/);
   assert.match(layout, /一站式 Podcast 製作服務｜企劃、講稿、錄製、上架一次完成/);
   assert.match(css, /cover-fade/);
   assert.match(css, /method-frame-sweep/);
