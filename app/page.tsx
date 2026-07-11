@@ -198,11 +198,29 @@ export default function Home() {
       </header>
 
       <main id="top">
-        <section className="cover-section" aria-label="聲音內容製作所封面">
-          <img
-            src="/home-cover.png"
-            alt="聲音內容製作所，Podcast 製作、聲音代錄、講稿撰寫、剪輯後製、上架發布"
-          />
+        <section className="cover-section" aria-label="聲音內容製造所首頁輪播">
+          <div className="cover-carousel">
+            <img
+              className="cover-slide"
+              src="/home-cover.png"
+              alt="聲音內容製作所，Podcast 製作、聲音代錄、講稿撰寫、剪輯後製、上架發布"
+            />
+            <img
+              className="cover-slide"
+              src="/cover-slide-2.png"
+              alt="一站式 Podcast 製作服務，企劃、講稿、錄製、剪輯、上架一次完成"
+            />
+            <img
+              className="cover-slide"
+              src="/cover-slide-3.png"
+              alt="專業的聲音，成就你的品牌，從想法到上架陪你完成每一步"
+            />
+            <div className="cover-dots" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </div>
+          </div>
         </section>
 
         <section className="service-hero-section" aria-label="一站式 Podcast 製作服務介紹">
