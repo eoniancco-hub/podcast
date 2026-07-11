@@ -50,6 +50,8 @@ test("server-renders the podcast sales page", async () => {
   assert.match(html, /如Apple podcast、spotify、KKBOX/);
   assert.match(html, /基本包不包含哪些服務？/);
   assert.match(html, /加入官方 LINE 詢問/);
+  assert.match(html, /LINE ID：@169wnclt/);
+  assert.match(html, /https:\/\/line\.me\/R\/ti\/p\/@169wnclt/);
   assert.doesNotMatch(html, /若需要到場錄音或專業錄音室服務/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
 });
@@ -79,6 +81,7 @@ test("keeps the product files focused on the finished site", async () => {
   assert.match(css, /\.cover-carousel \{[\s\S]*?width: 100%;/);
   assert.match(css, /method-frame-sweep/);
   assert.match(css, /industry-card:hover/);
+  assert.match(css, /line-id/);
   assert.match(css, /@media \(max-width: 720px\)/);
   assert.match(script, /data-nav-toggle/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);

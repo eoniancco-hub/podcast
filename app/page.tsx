@@ -1,5 +1,7 @@
 import Script from "next/script";
 
+const lineUrl = "https://line.me/R/ti/p/@169wnclt";
+
 const audience = [
   "個人品牌經營者",
   "專業顧問",
@@ -353,9 +355,10 @@ export default function Home() {
         <section className="section final-cta" id="line">
           <h2>準備讓你的品牌開始被聽見了嗎？</h2>
           <p>你不用從零學錄音、剪輯和上架。只要下單並提供資料，我們協助你把想法、文章、公司介紹或專業知識，變成可以發布的 Podcast。</p>
+          <p className="line-id">LINE ID：@169wnclt</p>
           <div className="button-row centered">
             <a className="button primary" href="#order">前往 EasyShop 下單</a>
-            <a className="button secondary" href="#line">加入官方 LINE 詢問</a>
+            <a className="button secondary" href={lineUrl} target="_blank" rel="noreferrer">加入官方 LINE 詢問</a>
           </div>
         </section>
       </main>
