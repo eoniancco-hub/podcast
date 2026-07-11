@@ -54,6 +54,7 @@ test("server-renders the podcast sales page", async () => {
   assert.match(html, /https:\/\/line\.me\/R\/ti\/p\/@169wnclt/);
   assert.doesNotMatch(html, /EasyShop/);
   assert.doesNotMatch(html, /href="#order"/);
+  assert.doesNotMatch(html, /button secondary[^>]*>LINE ID：@169wnclt/);
   assert.doesNotMatch(html, /若需要到場錄音或專業錄音室服務/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
 });

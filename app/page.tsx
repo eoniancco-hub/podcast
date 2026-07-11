@@ -358,7 +358,6 @@ export default function Home() {
           <p className="line-id">LINE ID：@169wnclt</p>
           <div className="button-row centered">
             <a className="button primary" href={lineUrl} target="_blank" rel="noreferrer">加入官方 LINE 詢問</a>
-            <a className="button secondary" href={lineUrl} target="_blank" rel="noreferrer">LINE ID：@169wnclt</a>
           </div>
         </section>
       </main>
