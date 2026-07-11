@@ -303,6 +303,18 @@ textarea {
   color: var(--ink);
 }
 
+.button.quote-button {
+  border-color: rgba(188, 138, 66, 0.55);
+  background: #fff8eb;
+  color: var(--orange-dark);
+  box-shadow: 0 12px 24px rgba(188, 138, 66, 0.14);
+}
+
+.button.quote-button:hover {
+  border-color: var(--gold);
+  background: #fff1dc;
+}
+
 .button.full {
   width: 100%;
   margin-top: 18px;

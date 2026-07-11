@@ -57,6 +57,8 @@ test("server-renders the podcast sales page", async () => {
   assert.match(html, /品牌加購/);
   assert.match(html, /協助建立 Podcast 節目帳號/);
   assert.match(html, /加入官方 LINE 選購服務/);
+  assert.match(html, /立即取得報價/);
+  assert.match(html, /https:\/\/docs\.google\.com\/forms\/d\/e\/1FAIpQLScql2a0ZuGxOU2_3F6Eh7yZutHZBmL9AvOgpjqGBf2yc_g9wg\/viewform\?pli=1/);
   assert.match(html, /常見問題/);
   assert.match(html, /可以。你可以提供自行錄製的聲音檔，我們協助進行基礎音檔整理與上架。/);
   assert.match(html, /如Apple podcast、spotify、KKBOX/);
@@ -97,6 +99,7 @@ test("keeps the product files focused on the finished site", async () => {
   assert.match(css, /method-frame-sweep/);
   assert.match(css, /industry-card:hover/);
   assert.match(css, /line-id/);
+  assert.match(css, /quote-button/);
   assert.match(css, /original-price/);
   assert.match(css, /current-price/);
   assert.match(css, /text-decoration: line-through/);
@@ -117,6 +120,8 @@ test("writes a static GitHub Pages version under docs", async () => {
   assert.match(html, /cover-slide-3\.png/);
   assert.match(html, /https:\/\/eoniancco-hub\.github\.io\/podcast\/home-cover\.png/);
   assert.match(html, /https:\/\/line\.me\/R\/ti\/p\/@169wnclt/);
+  assert.match(html, /立即取得報價/);
+  assert.match(html, /https:\/\/docs\.google\.com\/forms\/d\/e\/1FAIpQLScql2a0ZuGxOU2_3F6Eh7yZutHZBmL9AvOgpjqGBf2yc_g9wg\/viewform\?pli=1/);
   assert.match(html, /<title>聲音內容製造所<\/title>/);
   assert.match(html, /原定價\s*(?:<!-- -->)?\s*NT\$15,800/);
   assert.match(html, /現在購買<\/span>\s*(?:<!-- -->)?\s*NT\$9,800 起/);

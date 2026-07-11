@@ -1,6 +1,7 @@
 import Script from "next/script";
 
 const lineUrl = "https://line.me/R/ti/p/@169wnclt";
+const quoteFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLScql2a0ZuGxOU2_3F6Eh7yZutHZBmL9AvOgpjqGBf2yc_g9wg/viewform?pli=1";
 
 const audience = [
   "個人品牌經營者",
@@ -357,7 +358,10 @@ export default function Home() {
           <div className="cart-copy">
             <SectionIntro title="到 LINE 確認你需要的 Podcast 服務" text="你可以依需求選擇集數、單集長度、聲音形式、是否講稿代寫、雙人對話、片頭片尾、多平台上架、封面設計或社群貼文，我們會在 LINE 協助你確認方案。" />
             <p>加入官方 LINE 後，我們會依照你的需求確認服務內容、付款方式與資料上傳流程，再開始安排製作。</p>
-            <a className="button primary" href={lineUrl} target="_blank" rel="noreferrer">加入官方 LINE 選購服務</a>
+            <div className="button-row">
+              <a className="button primary" href={lineUrl} target="_blank" rel="noreferrer">加入官方 LINE 選購服務</a>
+              <a className="button secondary quote-button" href={quoteFormUrl} target="_blank" rel="noreferrer">立即取得報價</a>
+            </div>
           </div>
           <div className="cart-list">
             {["集數", "單集長度", "聲音形式", "講稿代寫", "雙人對話", "片頭片尾", "多平台上架", "封面或社群貼文"].map((item) => <span key={item}>{item}</span>)}
@@ -415,6 +419,7 @@ export default function Home() {
           <p className="line-id">LINE ID：@169wnclt</p>
           <div className="button-row centered">
             <a className="button primary" href={lineUrl} target="_blank" rel="noreferrer">加入官方 LINE 詢問</a>
+            <a className="button secondary quote-button" href={quoteFormUrl} target="_blank" rel="noreferrer">立即取得報價</a>
           </div>
         </section>
       </main>
