@@ -205,13 +205,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="service-hero-section" aria-label="一站式 Podcast 製作服務介紹">
-          <img
-            src="/service-hero.png"
-            alt="一站式 Podcast 製作服務，企劃、講稿、錄製、剪輯、上架一次完成"
-          />
-        </section>
-
         <section className="image-section pain-image-section" aria-label="Podcast 製作痛點">
           <img
             src="/pain-points.png"

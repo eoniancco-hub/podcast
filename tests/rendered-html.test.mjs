@@ -35,7 +35,7 @@ test("server-renders the podcast sales page", async () => {
   assert.match(html, /\/cover-slide-2\.png/);
   assert.match(html, /\/cover-slide-3\.png/);
   assert.match(html, /\/logo\.png/);
-  assert.match(html, /\/service-hero\.png/);
+  assert.doesNotMatch(html, /\/service-hero\.png/);
   assert.match(html, /\/pain-points\.png/);
   assert.match(html, /\/service-positioning\.png/);
   assert.match(html, /\/industry-designer\.png/);
@@ -66,7 +66,7 @@ test("keeps the product files focused on the finished site", async () => {
   assert.match(page, /選擇適合你的 Podcast 製作方案/);
   assert.match(page, /className="cover-section"/);
   assert.match(page, /className="cover-carousel"/);
-  assert.match(page, /className="service-hero-section"/);
+  assert.doesNotMatch(page, /className="service-hero-section"/);
   assert.match(page, /className="image-section pain-image-section"/);
   assert.match(page, /className="image-section positioning-image-section"/);
   assert.match(page, /className="industry-card"/);
@@ -75,6 +75,8 @@ test("keeps the product files focused on the finished site", async () => {
   assert.doesNotMatch(page, /const exclusions/);
   assert.match(layout, /一站式 Podcast 製作服務｜企劃、講稿、錄製、上架一次完成/);
   assert.match(css, /cover-fade/);
+  assert.match(css, /\.cover-section \{\n  padding: 0;/);
+  assert.match(css, /\.cover-carousel \{[\s\S]*?width: 100%;/);
   assert.match(css, /method-frame-sweep/);
   assert.match(css, /industry-card:hover/);
   assert.match(css, /@media \(max-width: 720px\)/);
