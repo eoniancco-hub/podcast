@@ -45,6 +45,7 @@ function makeStaticHtml(html, cssHref) {
   return html
     .replace(/<link rel="modulepreload"[^>]*>/g, "")
     .replace(/<script\b[^>]*>(?:(?!<\/script>)[\s\S])*self\.__VINEXT(?:(?!<\/script>)[\s\S])*<\/script>/g, "")
+    .replace(/<script id="_R_">(?:(?!<\/script>)[\s\S])*<\/script>/g, "")
     .replace(/<script[^>]*type="module"[\s\S]*?<\/script>/g, "")
     .replace(/ data-rsc-css-href="[^"]*"/g, "")
     .replace(/ data-precedence="[^"]*"/g, "")

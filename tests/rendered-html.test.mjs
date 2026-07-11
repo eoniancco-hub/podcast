@@ -103,5 +103,5 @@ test("writes a static GitHub Pages version under docs", async () => {
   assert.match(html, /https:\/\/eoniancco-hub\.github\.io\/podcast\/home-cover\.png/);
   assert.match(html, /https:\/\/line\.me\/R\/ti\/p\/@169wnclt/);
   assert.doesNotMatch(html, /\b(?:href|src|content)="\/(?!\/)/);
-  assert.doesNotMatch(html, /modulepreload|type="module"|__VINEXT_RSC|EasyShop/);
+  assert.doesNotMatch(html, /modulepreload|type="module"|__VINEXT_RSC|id="_R_"|import\("\/assets|EasyShop/);
 });
